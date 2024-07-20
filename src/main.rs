@@ -16,7 +16,7 @@ struct IndexMessage<'a> {
 fn index_route() -> (ContentType, Json<IndexMessage<'static>>)  {
     (ContentType::JSON, 
         Json(IndexMessage {
-                message: "Hello, world!"
+                message: "An Rust API Instance!"
             }
         )
     )
