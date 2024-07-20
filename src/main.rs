@@ -22,10 +22,8 @@ fn index_route() -> (ContentType, Json<IndexMessage<'static>>)  {
 
 #[tokio::main]
 async fn main() {
-    let runtime = tokio::spawn(async move {
+    tokio::spawn(async move {
         let _ = rocket::build().mount("/", routes![index_route])
             .launch().await;
-    });
-
-    runtime.await.unwrap();
+    }).await.unwrap();
 }
